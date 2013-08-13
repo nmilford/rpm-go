@@ -8,12 +8,12 @@
 # sudo yum -y install rpmdevtools ed bison mercurial && rpmdev-setuptree
 # 
 # wget https://raw.github.com/nmilford/rpm-go/master/go.spec -O ~/rpmbuild/SPECS/go.spec
-# wget https://go.googlecode.com/files/go1.1.1.src.tar.gz -O ~/rpmbuild/SOURCES/go1.1.1.src.tar.gz
+# wget https://go.googlecode.com/files/go1.1.2.src.tar.gz -O ~/rpmbuild/SOURCES/go1.1.2.src.tar.gz
 # 
 # rpmbuild -bb ~/rpmbuild/SPECS/go.spec
 
 Name:          go
-Version:       1.1.1
+Version:       1.1.2
 Release:       1%{?dist}
 Summary:       Go compiler and tools
 Group:         Development/Languages
@@ -147,6 +147,8 @@ rm -rf %{buildroot}
 %{_datadir}/emacs/site-lisp/go-mode*.el
 
 %changelog
+* Tue Aug 13 2013 Nathan Milford <nathan@milford.io> - 1.1.2
+- Bumped to 1.1.2.
 * Sat Jun 29 2013 Nathan Milford <nathan@milford.io> - 1.1.1
 - Bumped to 1.1.1.
 * Mon Oct 10 2012 Nathan Milford <nathan@milford.io> - 1.0.3
