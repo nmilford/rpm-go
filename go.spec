@@ -4,16 +4,16 @@
 # See: https://groups.google.com/forum/?fromgroups=#!topic/golang-nuts/QnjpPVc3V-g
 
 # To build:
-# 
+#
 # sudo yum -y install rpmdevtools ed bison mercurial && rpmdev-setuptree
-# 
+#
 # wget https://raw.github.com/nmilford/rpm-go/master/go.spec -O ~/rpmbuild/SPECS/go.spec
-# wget https://go.googlecode.com/files/go1.1.2.src.tar.gz -O ~/rpmbuild/SOURCES/go1.1.2.src.tar.gz
-# 
+# wget https://go.googlecode.com/files/go1.2.src.tar.gz -O ~/rpmbuild/SOURCES/go1.2.src.tar.gz
+#
 # rpmbuild -bb ~/rpmbuild/SPECS/go.spec
 
 Name:          go
-Version:       1.1.2
+Version:       1.2
 Release:       1%{?dist}
 Summary:       Go compiler and tools
 Group:         Development/Languages
@@ -24,6 +24,9 @@ BuildRoot:     %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildRequires: ed
 BuildRequires: bison
 BuildRequires: mercurial
+Provides:      golang
+
+
 %define _use_internal_dependency_generator 0
 %define __find_requires %{nil}
 %global debug_package %{nil}
@@ -147,6 +150,9 @@ rm -rf %{buildroot}
 %{_datadir}/emacs/site-lisp/go-mode*.el
 
 %changelog
+* Tue Aug 13 2013 Nathan Milford <nathan@milford.io> - 1.2
+- Bumped to 1.2.
+- Added golang provides.
 * Tue Aug 13 2013 Nathan Milford <nathan@milford.io> - 1.1.2
 - Bumped to 1.1.2.
 * Sat Jun 29 2013 Nathan Milford <nathan@milford.io> - 1.1.1
